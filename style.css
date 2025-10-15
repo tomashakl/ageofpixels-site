@@ -1,0 +1,405 @@
+/* 
+ * Age of Pixels — style.css
+ * Purpose: Global theme, layout, components, product grid, lightbox.
+ * Tip: The fixed backdrop is in body::before. Use .section backgrounds for contrast.
+ * Modified: 2025-10-13 21:06
+ */
+:root{
+  --ink:#0e4155; --ink-2:#0f3b4b; --sky:#5ec8d8; --teal:#47a9b6; --coral:#ff8f8a;
+  --sand:#ffe9cf; --text:#d6eef4; --muted:#a9c9d1; --shadow:0 12px 30px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;scroll-behavior:smooth;background: transparent;color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+.text-center{text-align:center}
+.narrow{max-width:820px}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:10;background:linear-gradient(180deg,#0d3a4a,#0e4155);
+  border-bottom:1px solid rgba(255,255,255,.06);backdrop-filter:saturate(150%) blur(4px)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;gap:.6rem;align-items:center;font-weight:700;letter-spacing:.06em}
+.brand-dot{background:#0aa1b8;color:#06242d;border-radius:999px;padding:.3rem .5rem;font-size:.8rem}
+.main-nav a{color:var(--text);opacity:.9;text-decoration:none;margin-left:18px}
+.main-nav a:hover{opacity:1;color:#fff}
+
+/* Hero */
+.hero{position:relative;min-height:420px;background: transparent;
+  display:flex;align-items:center;justify-content:center}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(transparent,rgba(6,20,27,.8) 70%)}
+.hero-overlay{position:relative;z-index:1;text-align:center;padding:72px 20px}
+.hero-title{font-size:64px;font-weight:800;margin:0 0 10px;color:#fff;text-shadow:0 8px 30px rgba(0,0,0,.45)}
+.hero-subtitle{margin:0 auto 22px;max-width:800px;color:var(--sand);opacity:.95;font-weight:600}
+.hero-ctas{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;border-radius:16px;padding:14px 22px;font-weight:900;text-decoration:none;color:#09313f;box-shadow:0 12px 30px rgba(0,0,0,.28);letter-spacing:.04em;border:1px solid rgba(255,255,255,.08);
+  
+  font-size: 1.25rem;
+}
+.btn-sky{background:var(--sky)} .btn-coral{background:var(--coral)} .btn-ink{background:#9fe0ea;color:#072935}
+
+/* Sekce */
+.section{padding:48px 0;background: rgba(8,28,39,0.35);margin:0 0 10px} p{line-height:1.65;color:var(--text)}
+
+/* NAV CARDS â€“ 6 v Ĺ™adÄ› */
+.nav-cards{padding:64px 0 80px;background: rgba(8,28,39,0.35);margin-top:32px}
+
+/* === My Collection grid: 6 tiles in one row (desktop) === */
+.cards-grid{
+  display:grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 28px;
+  margin-top: 32px;
+}
+/* Responsive: 3/2/1 on smaller widths */
+@media (max-width:1200px){ .cards-grid{ grid-template-columns: repeat(3, 1fr); } }
+@media (max-width:768px){  .cards-grid{ grid-template-columns: repeat(2, 1fr); } }
+@media (max-width:480px){  .cards-grid{ grid-template-columns: 1fr; } }
+
+.nav-card{display:flex;align-items:center;justify-content:center;height:120px;border-radius:24px;text-decoration:none;
+  background:linear-gradient(180deg,#0f4e63,#0d3c4d);box-shadow:0 14px 35px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
+  color:#d9f2ff;font-weight:500;font-size:20px;letter-spacing:.03em;transition:transform .18s ease, box-shadow .18s ease, background .18s ease}
+.nav-card:hover{transform:translateY(-4px);box-shadow:0 18px 38px rgba(0,0,0,.42), inset 0 1px 0 rgba(255,255,255,.08);background:rgba(22,58,76,.92)}
+@media (max-width:1200px){/* === My Collection grid: 6 tiles in one row (desktop), then 3/2/1 responsive === */
+.cards-grid{
+  display:grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 28px;
+  margin-top: 32px;
+}}
+@media (max-width:768px){/* === My Collection grid: 6 tiles in one row (desktop), then 3/2/1 responsive === */
+.cards-grid{
+  display:grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 28px;
+  margin-top: 32px;
+}}
+@media (max-width:480px){/* === My Collection grid: 6 tiles in one row (desktop), then 3/2/1 responsive === */
+.cards-grid{
+  display:grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 28px;
+  margin-top: 32px;
+}}
+
+/* Video grid (zĹŻstĂˇvĂˇ stejnĂ©) */
+.videos-sub{color:var(--muted);margin-top:-6px;margin-bottom:18px;text-align:center}
+.video-wrap{margin-top:16px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);background:#062733;
+  
+
+  position:relative;
+  cursor:pointer;
+}
+.videos-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media (max-width:1100px){.videos-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:720px){.videos-grid{grid-template-columns:1fr}}
+
+/* Modal pĹ™ehrĂˇvaÄŤ â€“ struÄŤnÄ› */
+.modal{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;padding:20px}
+.modal.show{display:flex}.modal-inner{width:min(100%,960px);aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.modal-inner iframe{width:100%;height:100%;border:0;display:block}
+.modal-close{ z-index:2; position:absolute;top:14px;right:18px;background:#fff;color:#0a2c39;border:0;border-radius:12px;font-weight:800;padding:8px 12px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+
+/* Footer */
+.site-footer{padding:28px 0 40px;background:linear-gradient(180deg,var(--ink-2),#0a2c39);border-top:1px solid rgba(255,255,255,.06);position:relative;z-index:1}
+.copyright{color:var(--muted);margin:10px 0 0;font-size:14px}
+
+/* === Global fixed background (added) === */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:url('site-assets/hero-banner.png') center/cover no-repeat;
+  z-index:0;
+  /* gentle tuning */
+  filter:contrast(1.02) saturate(1.05);
+
+  background-blend-mode: overlay;
+  background-color: rgba(0,0,0,0.35);
+}
+/* Ensure sections do not paint over the global background */
+.hero{ background: transparent !important; }
+.hero::before{ background: none !important; }
+/* Sticky header shadow (subtle) */
+.site-header.is-scrolled {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  backdrop-filter: blur(6px) saturate(140%);
+  transition: box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+/* Heading above the 6-card grid */
+.nav-cards h2{
+  text-align:center;
+  margin: 0 0 28px;
+}
+
+.section{ position: relative; z-index: 1; }
+
+.nav-cards{ position: relative; z-index: 1; }
+
+/* Consistent h2 alignment */
+.nav-cards h2, .section h2 { text-align:center; }
+
+
+/* Subtle video hover affordance */
+.video-wrap img{ display:block; width:100%; height:auto; transition: transform .16s ease, filter .16s ease; }
+.video-wrap::after{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    radial-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.25)) center/cover no-repeat;
+  display:block; opacity:0; transition:opacity .16s ease;
+}
+.video-wrap::before{
+  content:"â–¶";
+  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+  font-size:48px; line-height:1; color:white; text-shadow:0 6px 18px rgba(0,0,0,.45);
+  opacity:0; transition:opacity .16s ease;
+}
+.video-wrap:hover::after,
+.video-wrap:hover::before{ opacity:.85; }
+.video-wrap:hover img{ filter:brightness(1.06); transform: translateY(-1px); }
+
+
+.btn:hover{ transform: translateY(-2px); box-shadow:0 16px 36px rgba(0,0,0,.34); transition:transform .12s ease, box-shadow .12s ease; }
+
+
+/* === Detail page grid (2x2) === */
+.detail-title{ text-align:center; margin-bottom:24px; }
+
+.detail-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: auto;
+  align-items: stretch;
+  gap: 28px;
+}
+
+@media (max-width: 900px){
+  .detail-grid{ grid-template-columns: 1fr; }
+}
+
+.detail-card{
+  background: linear-gradient(180deg, rgba(8,43,54,.75), rgba(6,32,44,.85));
+  border-radius: 22px;
+  padding: 18px;
+  box-shadow: 0 18px 40px rgba(0,0,0,.35);
+}
+
+.detail-card h3{
+  margin: 0 0 10px;
+}
+
+.img-holder{
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 10px 26px rgba(0,0,0,.35);
+  background: rgba(0,0,0,.15);
+  margin: 0 0 10px;
+  flex:1;
+}
+
+.img-holder img{ width:100%; height:100%; aspect-ratio:4 / 3; object-fit:contain; display:block; }
+
+.req-list{ margin: 0 0 6px 18px; }
+.back-home{ text-align:center; margin-top: 22px; }
+
+/* === Image Lightbox === */
+.img-lightbox{
+  position:fixed; inset:0; display:none;
+  align-items:center; justify-content:center;
+  background: rgba(0,0,0,.7);
+  z-index: 9999;
+}
+.img-lightbox.show{ display:flex; }
+.img-lightbox img{
+  max-width: 92vw; max-height: 92vh;
+  border-radius: 14px; box-shadow: 0 18px 50px rgba(0,0,0,.5);
+  transition: transform .2s ease;
+  cursor: zoom-in;
+}
+.img-lightbox img.zoomed{ transform: scale(1.6); cursor: zoom-out; }
+.img-lightbox .img-close{
+  position:absolute; top:18px; right:22px;
+  font-size: 28px; line-height: 1; padding: 10px 14px;
+  border-radius: 12px; border: 0;
+  background: rgba(255,255,255,.15); color: #fff;
+  cursor:pointer;
+}
+.img-lightbox .img-close:hover{ background: rgba(255,255,255,.25); }
+
+
+/* === Hover affordance for zoomable images === */
+.img-holder{ position:relative; }
+.img-holder .zoomable{ cursor: zoom-in; transition: filter .16s ease, transform .16s ease; }
+.img-holder:hover .zoomable{ filter: brightness(1.06); transform: translateY(-1px); }
+.img-holder::after{
+  content:"";
+  position:absolute; inset:0; border-radius:16px;
+  background: radial-gradient(rgba(0,0,0,0), rgba(0,0,0,.28));
+  opacity:0; transition: opacity .16s ease;
+  pointer-events:none;
+}
+.img-holder::before{
+  content:"\1F50D"; /* magnifier unicode */
+  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+  font-size:42px; line-height:1; color:#fff; text-shadow:0 6px 18px rgba(0,0,0,.45);
+  opacity:0; transition: opacity .16s ease;
+  pointer-events:none;
+}
+.img-holder:hover::after,
+.img-holder:hover::before{ opacity:.9; }
+
+
+/* Center text inside nav cards */
+.nav-card span{display:block;text-align:center;line-height:1.25;padding:0 8px}
+
+.badges img{width:50px;height:auto;image-rendering:pixelated;display:block}
+
+/* === Alphabet Navigator === */
+.alpha-nav{ display:flex; flex-wrap:wrap; gap:8px; justify-content:center; padding:8px 0 22px; }
+.alpha-nav .letter{ 
+  display:inline-flex; align-items:center; justify-content:center;
+  width:32px; height:32px; border-radius:10px; font-weight:800; text-decoration:none;
+  background: rgba(255,255,255,.08); color:#d6eef4; box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+}
+.alpha-nav .letter.disabled{ opacity:.35; pointer-events:none; background: rgba(255,255,255,.04); }
+.alpha-nav .letter.active{ background: var(--sky); color:#08313d; }
+.alpha-nav .hash{ width:auto; padding:0 10px; }
+
+/* Hover affordance for active alphabet letters */
+.alpha-nav .letter.active:hover{
+  background:#4ab9c9; /* slightly darker than var(--sky) */
+  box-shadow:0 0 12px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.08);
+  transform:translateY(-1px);
+  transition:background .12s ease, transform .12s ease, box-shadow .12s ease;
+}
+
+figure.detail-card figcaption{opacity:.85;font-size:.95rem;margin:4px 2px 0}
+
+/* Product image cards: full column width, 4:3 image area, no artificial stretching */
+figure.detail-card{ display:block; height:auto; }
+figure.detail-card .img-holder{ aspect-ratio: 4 / 3; height:auto; }
+figure.detail-card img{ object-fit: contain; width:100%; height:100%; }
+
+
+
+/* Reset default figure margin so image cards align exactly with text cards */
+figure.detail-card{ margin:0; }
+article.detail-card{ margin:0; }
+
+
+/* Small button variant for compact CTAs */
+.btn-small{ padding:8px 14px; font-size:1rem; border-radius:12px;}
+
+/* Keep inline <code> text visually consistent on simple info pages */
+code{ font-family: inherit; background: none; color: inherit; }
+
+/* Brand as a link */
+.brand{ text-decoration:none; color:var(--text); }
+.brand:hover{ color:#fff; }
+
+/* ============================================================
+   AGE OF PIXELS — ANCHOR SCROLL FIX
+   Always keep this rule active for all product pages (1.html, 2.html…).
+   It prevents headings from being hidden under the fixed header
+   when jumping via alphabet navigation links.
+   ============================================================ */
+div[id^="letter-"] {
+  scroll-margin-top: 84px;
+}
+
+/* Floating button: return to A–Z bar */
+#back-to-alpha{
+  position:fixed; right:18px; bottom:18px;
+  width:40px; height:40px; border-radius:12px;
+  display:none; align-items:center; justify-content:center;
+  background: var(--sky);
+  color:#08313d; font-size:22px; font-weight:900;
+  box-shadow: 0 12px 28px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.12);
+  z-index:50; cursor:pointer; user-select:none;
+}
+#back-to-alpha:hover{ transform:translateY(-1px); box-shadow:0 16px 34px rgba(0,0,0,.42), inset 0 1px 0 rgba(255,255,255,.14); }
+@media (max-width: 700px){
+  #back-to-alpha{ right:14px; bottom:14px; width:36px; height:36px; font-size:20px; }
+}
+}
+
+
+/* Ensure jumping to the top shows the page title above the alphabet bar */
+.hero{ scroll-margin-top: 84px; }
+
+/* Flag icons inside language switch */
+.lang-switch button img{
+  width:24px;
+  height:16px;
+  display:block;
+  margin:auto;
+  border-radius:3px;
+}
+
+/* === Language switch (flags) - unified, larger and polished === */
+.lang-switch{display:flex;gap:10px;align-items:center;margin-left:12px}
+.lang-switch button{
+  width:56px;
+  height:36px;
+  padding:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:10px;
+  cursor:pointer;
+  transition:background .15s, transform .05s, box-shadow .15s;
+}
+.lang-switch button:hover{background:rgba(255,255,255,.14)}
+.lang-switch button:active{transform:translateY(1px)}
+.lang-switch button:focus-visible{outline:2px solid rgba(255,255,255,.5); outline-offset:2px}
+.lang-switch button img{
+  width:32px;
+  height:22px;
+  display:block;
+  border-radius:4px;
+  box-shadow:0 1px 2px rgba(0,0,0,.3);
+}
+@media (max-width: 640px){
+  .lang-switch button{width:48px;height:32px}
+  .lang-switch button img{width:28px;height:20px}
+}
+
+
+/* === Share card === */
+.share-card{ display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
+.share-row{ display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
+.share-btn{
+  width:26px; height:20px; border-radius:8px; display:inline-flex; align-items:center; justify-content:center;
+  text-decoration:none; border:1px solid rgba(255,255,255,.12); box-shadow: 0 6px 18px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.1);
+  background: rgba(255,255,255,.08); transition: transform .08s ease, box-shadow .12s ease, background .12s ease;
+}
+.share-btn:hover{ transform: translateY(-1px); box-shadow: 0 14px 30px rgba(0,0,0,.38), inset 0 1px 0 rgba(255,255,255,.12); background: rgba(255,255,255,.14); }
+.share-btn svg{ width:16px; height:16px; fill:#fff; display:block; }
+.share-btn.fb{ background:#1877F2; }
+.share-btn.x{ background:#111; }
+.share-btn.mail{ background:#888; }
+.share-btn.wa{ background:#25D366; }
+.share-btn.more{ background:#8BC34A; }
+.share-btn.fb:hover{ background:#1565D8; }
+.share-btn.x:hover{ background:#000; }
+.share-btn.mail:hover{ background:#777; }
+.share-btn.wa:hover{ background:#1EBE58; }
+.share-btn.more:hover{ background:#7CB342; }
+
+/* Empty reserve card: keep size consistent but no content */
+.reserve-card{ min-height:36px; background:linear-gradient(180deg, rgba(4,20,28,.75), rgba(3,14,20,.85)); border:1px solid rgba(255,255,255,.06); }
+
+.share-btn.copy{ background:#00BCD4; }
+.share-btn.copy:hover{ background:#00A5BA; }
+
+.share-btn.copied{ outline:2px solid rgba(255,255,255,.6); outline-offset:1px; }
+
+.share-btn.tg{ background:#229ED9; }.share-btn.tg:hover{ background:#1e8ec3; }
+.share-btn.rd{ background:#FF4500; }.share-btn.rd:hover{ background:#e03e00; }
+.share-btn.li{ background:#0A66C2; }.share-btn.li:hover{ background:#0956A5; }
+.share-btn.ms{ background:#0099FF; }.share-btn.ms:hover{ background:#0086E0; }

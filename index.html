@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!-- Age of Pixels — index.html
+     Purpose: Landing page with hero, 6-card grid, videos, about.
+     i18n: Texts use data-i18n keys defined in i18n.js. Use ?lang=cs|en to override.
+     Modified: 2025-10-13 21:06 -->
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta name="description" content="Age of Pixels — retro computing & big box games. MIDI hardware captures (MT-32, SC-55), sound cards, Amiga & hi-fi.">
+  <title>
+   Age of Pixels &mdash; Vintage Computers &amp; Games
+  </title>
+  <link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link as="image" href="site-assets/hero-banner.png" rel="preload"/>
+  <link rel="preconnect" href="https://img.youtube.com" crossorigin>
+  <link rel="preconnect" href="https://www.youtube-nocookie.com" crossorigin>
+  <link href="style.css" rel="stylesheet"/>
+  <link rel="canonical" href="https://ageofpixels.com/index.html">
+  <script defer="True" src="i18n.js">
+  </script>
+  <script defer="" src="script.js">
+  </script>
+ </head>
+ <body>
+  <!-- Header -->
+  <header class="site-header">
+   <div class="container header-inner">
+    <a class="brand" href="index.html">
+     <span class="brand-dot">
+      AOP
+     </span>
+     Age of Pixels
+    </a>
+    <div aria-label="Language switch" class="lang-switch">
+     <button aria-label="&Ccaron;e&scaron;tina" data-setlang="cs" title="&Ccaron;e&scaron;tina">
+      <img alt="&Ccaron;e&scaron;tina" src="site-assets/dooffy_design_icons_EU_flags_Czech_Republic.png"/>
+     </button>
+     <button aria-label="English" data-setlang="en" title="English">
+      <img alt="English" src="site-assets/dooffy_design_icons_EU_flags_United_Kingdom.png"/>
+     </button>
+    </div>
+    <nav class="main-nav">
+     <a data-i18n="nav.collection" href="#collection">
+      My Collection
+     </a>
+     <a data-i18n="nav.videos" href="#videos">
+      Videos
+     </a>
+     <a data-i18n="nav.about" href="#about">
+      About
+     </a>
+     <a data-i18n="nav.links" href="#links">
+      Links
+     </a>
+    </nav>
+   </div>
+  </header>
+  <!-- Hero -->
+  <section class="hero" id="links">
+   <div class="hero-overlay">
+    <h1 class="hero-title">
+     Age of Pixels
+    </h1>
+    <p class="hero-subtitle" data-i18n="site.subtitle">
+     Retro computing &amp; big box games. Genuine MIDI hardware captures (MT-32, SC-55), sound cards, Amiga &amp; hi-fi.
+    </p>
+    <p class="hero-ctas">
+     <a class="btn btn-sky" href="https://www.youtube.com/@AgeOfPixelsYT" rel="noopener" target="_blank">
+      YouTube Channel
+     </a>
+     <a class="btn btn-coral" href="https://www.ebay.com/usr/tomek99cz" rel="noopener" target="_blank">
+      Shop on eBay
+     </a>
+     <a class="btn btn-ink" href="https://aukro.cz/uzivatel/tomek_h2/nabidky" rel="noopener" target="_blank">
+      Aukro Listings
+     </a>
+    </p>
+   </div>
+  </section>
+  <!-- NAV CARDS – 6 tlaÄŤĂ­tek v Ĺ™adÄ› -->
+  <!-- NOTE: My Collection tile labels are fixed in EN for all locales (do not translate). -->
+<section class="nav-cards" id="collection">
+   <div class="container">
+    <h2 data-i18n="home.collection">My Collection</h2>
+    <div class="cards-grid">
+     <a class="nav-card" href="1.html"><span>DOS / Win 3.x Games</span></a>
+     <a class="nav-card" href="2.html"><span>Windows 95/98 Games</span></a>
+     <a class="nav-card" href="3.html"><span>DVD Case Games</span></a>
+     <a class="nav-card" href="4.html"><span>Sound Cards ISA</span></a>
+     <a class="nav-card" href="5.html"><span>Sound Cards PCI</span></a>
+     <a class="nav-card" href="6.html"><span>Sound Modules</span></a>
+     <a class="nav-card" href="7.html"><span>Graphics Cards VLB</span></a>
+     <a class="nav-card" href="8.html"><span>Graphics Cards ISA</span></a>
+     <a class="nav-card" href="9.html"><span>Graphics Cards PCI</span></a>
+     <a class="nav-card" href="10.html"><span>Amiga Hardware</span></a>
+     <a class="nav-card" href="11.html"><span>Amiga Games</span></a>
+     <a class="nav-card" href="12.html"><span>Amiga Software</span></a>
+    </div>
+   </div>
+  </section>
+  <!-- VIDEA – JS sem natĂˇhne obsah z videos.html -->
+  <section class="section" id="videos">
+   <div class="container">
+    <h2 data-i18n="home.videos">
+     Videos
+    </h2>
+    <p class="videos-sub" data-i18n="home.videosSub">
+     Click a thumbnail to play.
+    </p>
+    <div id="videos-mount">
+    </div>
+   </div>
+  </section>
+  <!-- About -->
+  <section class="section" id="about">
+   <div class="container narrow text-center">
+    <h2 data-i18n="home.about">
+     About
+    </h2>
+    <p data-i18n="about.p1">I am an enthusiast of the 80s/90s PC era, Amiga, and MIDI modules. After years of keeping things in storage, I now restore, record, and share them so they don’t get lost in drawers.</p>
+    <p data-i18n="about.p2">On YouTube, you’ll find authentic sound recordings from Roland MT-32, SC-55, and other cards/modules. On eBay/Aukro I regularly offer big box games, hardware, and hi-fi pieces from my collection.</p>
+    <p data-i18n="about.p3">My goal is to keep this era alive and accessible. Thanks for subscribing and following!</p>
+   </div>
+  </section>
+  <!-- Footer -->
+  <footer class="site-footer">
+   <div style="margin-top:18px; display:flex; flex-direction:column; align-items:center; gap:12px;">
+    <div class="badges">
+     <img alt="Best viewed in Netscape Navigator" src="site-assets/netscape.gif" style="width:50px;height:auto;image-rendering:pixelated" width="50"/>
+    </div>
+    <p class="copyright">
+     &copy; 2025 Age of Pixels &mdash; Retro lives.
+    </p>
+    <div class="detail-card" style="max-width:220px; text-align:center; padding:10px 12px;">
+     <a class="btn btn-sky btn-small" href="privacy.html">
+      Privacy &amp; Cookies
+     </a>
+    </div>
+   </div>
+  </footer>
+  <!-- Modal player -->
+  <div aria-hidden="true" class="modal" id="video-modal">
+   <div class="modal-inner">
+    <button aria-label="Close" class="modal-close" id="modal-close">
+     ✕
+    </button>
+    <iframe allow="autoplay; encrypted-media" allowfullscreen="" id="video-frame" src="">
+    </iframe>
+   </div>
+  </div>
+ </body>
+</html>
